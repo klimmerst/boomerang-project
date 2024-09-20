@@ -19,9 +19,14 @@ class Enemy {
   }
 
   die() {
-    this.positionX = 30;
-    this.generateSkin();
+    // this.positionX = 
+    // // this.positionX = 30;
+    // this.skin = '';
+    // this.generateSkin();
     console.log('Enemy is dead!');
+    this.generateSkin();
+    this.positionX = 30;
+    this.positionY = Math.floor(1 + Math.random() * (4 + 1 - 1));
   }
 }
 
