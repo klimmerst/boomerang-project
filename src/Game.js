@@ -18,16 +18,18 @@ class Game {
     this.hero = new Hero(); // Герою можно аргументом передать бумеранг.
     this.enemy = new Enemy(trackLength);
     this.view = new View();
-    this.boomerang = new Boomerang(this.hero.position);
     this.track = [];
     this.fillTrack();
+  }
+
+  static damage() {
+    this.hero.attack(this.boomerang);
   }
 
   fillTrack() {
     for (let i = 1; i <= 5; i += 1) {
       this.track.push((new Array(this.trackLength)).fill(' '));
     }
-
   }
 
   regenerateTrack() {
@@ -38,18 +40,21 @@ class Game {
 
     this.track[this.hero.positionY][this.hero.positionX] = this.hero.skin;
     this.track[this.enemy.positionY][this.enemy.positionX] = this.enemy.skin;
-
+    if (this.hero.boomerang.positionX !== 'NaN') {
+      this.track[this.hero.boomerang.positionY][this.hero.boomerang.positionX] = this.hero.boomerang.skin;
+    }
+    this.hero.boomerang.moveRight();
+    this.hero.boomerang.fly();
   }
 
   check() {
     if (this.hero.positionX === this.enemy.positionX && this.hero.positionY === this.enemy.positionY) {
       this.hero.die();
     }
-    // fs.appendFile('./logs.txt', `${this.enemy.position} + ${this.boomerang.position}`);
-    if (this.enemy.position === this.boomerang.position) {
-      this.enemyKilled += 1;
-      this.enemy.die();
-    }
+    // if (this.enemy.position === this.boomerang.position) {
+    //   this.enemyKilled += 1;
+    //   this.enemy.die();
+    // }
   }
 
   play() {
@@ -63,4 +68,3 @@ class Game {
 }
 
 module.exports = Game;
-

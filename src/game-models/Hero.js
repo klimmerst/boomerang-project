@@ -1,10 +1,12 @@
 // Наш герой.
+const Boomerang = require('./Boomerang');
 
 class Hero {
   constructor() {
     this.skin = '🦊';
     this.positionX = 0;
     this.positionY = 2;
+    this.boomerang = new Boomerang(this.positionY);
   }
 
   moveLeft() {
@@ -44,8 +46,9 @@ class Hero {
   }
 
   attack() {
-    // Атакуем.
-    this.boomerang.fly();
+    this.boomerang.positionX = this.positionX + 1;
+    // this.boomerang.positionY = this.positionY;
+    // this.boomerang.fly();
   }
 
   die() {
