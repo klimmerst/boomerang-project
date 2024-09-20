@@ -2,7 +2,7 @@
 
 class Hero {
   constructor() {
-    this.skin = '🤠'; // можете использовать любые emoji '💃'
+    this.skin = '🦊';
     this.positionX = 0;
     this.positionY = 2;
   }
