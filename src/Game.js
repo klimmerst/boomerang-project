@@ -58,6 +58,7 @@ class Game {
       this.check();
       this.regenerateTrack();
       this.view.render(this.track, this.hero);
+      this.enemy.moveLeft();
     }, 100);
   }
 }
