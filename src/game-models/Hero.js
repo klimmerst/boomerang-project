@@ -5,6 +5,7 @@ class Hero {
   constructor() {
     this.skin = '🦊';
     this.positionX = 0;
+
     this.positionY = 2;
     this.boomerang = new Boomerang(this.positionY);
   }
@@ -38,8 +39,8 @@ class Hero {
 
   moveDown() {
     // Идём вниз.
-    if (this.positionY === 4) {
-      this.positionY === 4;
+    if (this.positionY === 9) {
+      this.positionY === 9;
     } else {
       this.positionY += 1;
     }

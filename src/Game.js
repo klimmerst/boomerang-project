@@ -27,7 +27,7 @@ class Game {
   }
 
   fillTrack() {
-    for (let i = 1; i <= 5; i += 1) {
+    for (let i = 1; i <= 10; i += 1) {
       this.track.push((new Array(this.trackLength)).fill(' '));
     }
   }
@@ -40,11 +40,13 @@ class Game {
 
     this.track[this.hero.positionY][this.hero.positionX] = this.hero.skin;
     this.track[this.enemy.positionY][this.enemy.positionX] = this.enemy.skin;
+
     if (this.hero.boomerang.positionX !== 'NaN') {
       this.track[this.hero.boomerang.positionY][this.hero.boomerang.positionX] = this.hero.boomerang.skin;
     }
     this.hero.boomerang.moveRight();
     this.hero.boomerang.fly();
+
   }
 
   check() {
@@ -63,6 +65,7 @@ class Game {
       this.check();
       this.regenerateTrack();
       this.view.render(this.track, this.hero);
+      this.enemy.moveLeft();
     }, 100);
   }
 }
