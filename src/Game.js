@@ -53,10 +53,10 @@ class Game {
     if (this.hero.positionX === this.enemy.positionX && this.hero.positionY === this.enemy.positionY) {
       this.hero.die();
     }
-    // if (this.enemy.position === this.boomerang.position) {
-    //   this.enemyKilled += 1;
-    //   this.enemy.die();
-    // }
+    if (this.enemy.positionX === this.hero.boomerang.positionX) {
+      this.enemyKilled += 1;
+      this.enemy.die();
+    }
   }
 
   play() {
