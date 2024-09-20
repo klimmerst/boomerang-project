@@ -38,3 +38,5 @@ async function choosePlayer() {
 
 // Запускаем программу
 choosePlayer();
+
+// checking pr
