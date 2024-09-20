@@ -48,7 +48,7 @@ class Hero {
 
   attack() {
     this.boomerang.positionX = this.positionX + 1;
-    // this.boomerang.positionY = this.positionY;
+    this.boomerang.positionY = this.positionY;
     // this.boomerang.fly();
   }
 
