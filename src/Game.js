@@ -20,22 +20,29 @@ class Game {
     this.view = new View();
     this.boomerang = new Boomerang(this.hero.position);
     this.track = [];
-    this.regenerateTrack();
-    this.enemyKilled = 0;
+    this.fillTrack();
+  }
+
+  fillTrack() {
+    for (let i = 1; i <= 5; i += 1) {
+      this.track.push((new Array(this.trackLength)).fill(' '));
+    }
+
   }
 
   regenerateTrack() {
+    this.track = [];
+    this.fillTrack();
     // Сборка всего необходимого (герой, враг(и), оружие)
     // в единую структуру данных
-    this.track = (new Array(this.trackLength)).fill(' ');
-    this.track[this.hero.position] = this.hero.skin;
-    this.track[this.enemy.position] = this.enemy.skin;
-    this.track[this.boomerang.position] = this.boomerang.skin;
-    this.boomerang.fly();
+
+    this.track[this.hero.positionY][this.hero.positionX] = this.hero.skin;
+    this.track[this.enemy.positionY][this.enemy.positionX] = this.enemy.skin;
+
   }
 
   check() {
-    if (this.hero.position === this.enemy.position) {
+    if (this.hero.positionX === this.enemy.positionX && this.hero.positionY === this.enemy.positionY) {
       this.hero.die();
     }
     // fs.appendFile('./logs.txt', `${this.enemy.position} + ${this.boomerang.position}`);
@@ -50,9 +57,10 @@ class Game {
       // Let's play!
       this.check();
       this.regenerateTrack();
-      this.view.render(this.track, this.enemyKilled);
+      this.view.render(this.track, this.hero);
     }, 100);
   }
 }
 
 module.exports = Game;
+
