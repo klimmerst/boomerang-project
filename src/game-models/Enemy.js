@@ -9,13 +9,18 @@ class Enemy {
   }
 
   generateSkin() {
-    const skins = ['🐜', '🦗', '🦟', '🕷️', '🦂', '🐛', '💩', '🦠', '🧟', '🧛', '🧟', '🧙🏻‍♀️'];
+    const skins = ['🐜', '🦗', '🦟', '🕷️', '🦂', '🐛', '🦠', '🧟', '🧛', '🧟'];
     this.skin = skins[Math.floor(Math.random() * skins.length)];
   }
 
   moveLeft() {
     // Идём влево.
     this.positionX -= 1;
+    if (this.positionX === 0) {
+      this.generateSkin();
+      this.positionX = 30;
+      this.positionY = Math.floor(1 + Math.random() * (4 + 1 - 1));
+    }
   }
 
   die() {
