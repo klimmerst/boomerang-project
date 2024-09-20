@@ -24,10 +24,9 @@ class Game {
   }
 
   fillTrack() {
-    for (let i = 1; i <= 5; i += 1) {
+    for (let i = 1; i <= 10; i += 1) {
       this.track.push((new Array(this.trackLength)).fill(' '));
     }
-
   }
 
   regenerateTrack() {
@@ -38,7 +37,6 @@ class Game {
 
     this.track[this.hero.positionY][this.hero.positionX] = this.hero.skin;
     this.track[this.enemy.positionY][this.enemy.positionX] = this.enemy.skin;
-
   }
 
   check() {

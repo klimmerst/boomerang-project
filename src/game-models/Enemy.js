@@ -1,11 +1,11 @@
 // Враг.
 
 class Enemy {
-  constructor( positionX, positionY ) {
+  constructor( positionX = 30, positionY = Math.floor(1 + Math.random() * (4 + 1 - 1))) {
     this.generateSkin();
 
-    this.positionX = 30;
-    this.positionY = Math.floor(1 + Math.random() * (4 + 1 - 1));
+    this.positionX = positionX;
+    this.positionY = positionY;
   }
 
   generateSkin() {
@@ -19,7 +19,7 @@ class Enemy {
   }
 
   die() {
-    this.positionX = '?';
+    this.positionX = 30;
     this.generateSkin();
     console.log('Enemy is dead!');
   }
