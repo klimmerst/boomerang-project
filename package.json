@@ -1,10 +1,12 @@
 {
   "name": "core-async-boomerang",
   "version": "1.0.0",
+    "type": "module",
   "description": "Настало время разрабатывать лучшие в мире игры!",
   "main": "run.js",
   "dependencies": {
     "find-exec": "^1.0.2",
+    "inquirer": "^11.0.2",
     "keypress": "^0.2.1",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
